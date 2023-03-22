@@ -1,21 +1,14 @@
 import java.util.Scanner;
 
 public class mediaalunos {
-    public static void main(String [] args){
-       Scanner scanner = new Scanner(System.in);
+public static void main(String [] args){
+     entradaUsuario();
+       
+}
 
-       double soma = 0;
+public static String informaResultado(double media){
+     return(media >= 7 ? "O aluno está aprovado com média de " + media:"O aluno está reprovado com média de " + media);
 
-       for(double i = 0; i < 6; i++){
-            System.out.println("Insira uma nota: ");
-            double nota = scanner.nextDouble();
-            soma += nota;
-
-       }
-
-       double media = soma / 6;
-
-       System.out.println("Média: " + media);
 }
 
 public static double calculaMedia(double somatorioNotas, int numeroNotas){
@@ -37,14 +30,15 @@ public static void entradaUsuario(){
           if(nota == 0){
                break;
           }
-
           somadorNotas += nota;
           somadorNumeroNotas += 1;
-       }
+     }
 
-       double media = somadorNotas / somadorNumeroNotas;
+          
+     double media = calculaMedia(somadorNotas, somadorNumeroNotas);
+     System.out.println(informaResultado(media));
 
-       System.out.println("A média é : " + media);
+    
 
-}
+     }
 }
